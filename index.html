@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generic Medicine Finder </title>
+    <meta name="color-scheme" content="dark light" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- =========================
+       AUTH: SIGNUP / LOGIN FLOW
+       ========================= -->
+    <div class="auth-wrap" id="auth">
+        <div class="auth-card" id="signup-card">
+            <h2>Create your account</h2>
+            <p class="muted">Register to use Generic Medicine Finder</p>
+
+            <!-- signup card -->
+            <div class="field">
+                <label for="signup-username">Username</label>
+                <input class="input" id="signup-username" type="text" placeholder="e.g. chandu_bhatt" />
+            </div>
+            <div class="field">
+                <label for="signup-password">Password</label>
+                <input class="input" id="signup-password" type="password" placeholder="••••••••" />
+            </div>
+            <!-- button for continue -->
+            <div class="auth-actions">
+                <button class="btn btn-primary" id="signup-btn">Sign up</button>
+                <button class="btn btn-ghost" id="go-login">Already have an account? Login</button>
+            </div>
+            <div class="error" id="signup-msg"></div>
+        </div>
+
+
+        <!-- Login Content -->
+        <div class="auth-card" id="login-card" style="display:none">
+            <h2>Welcome back</h2>
+            <p class="muted">Log in to continue</p>
+            <div class="field">
+                <label for="login-username">Username</label>
+                <input class="input" id="login-username" type="text" placeholder="your username" />
+            </div>
+            <div class="field">
+                <label for="login-password">Password</label>
+                <input class="input" id="login-password" type="password" placeholder="••••••••" />
+            </div>
+            <div class="auth-actions">
+                <button class="btn btn-primary" id="login-btn">Login</button>
+                <button class="btn btn-ghost" id="go-signup">Create a new account</button>
+            </div>
+            <div class="error" id="login-error"></div>
+        </div>
+    </div>
+
+    <!-- ==============
+       APP CONTAINER
+       ============= -->
+    <div class="app" id="app" style="display:none">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div>
+                <div class="brand">
+                    <div class="logo">GM</div>
+                    <h1>Generic Medicine Finder</h1>
+                </div>
+                <div class="profile">
+                    <div class="avatar" id="avatar">U</div>
+                    <div>
+                        <h3 id="user-title">Welcome</h3>
+                        <p id="member-since">Member</p>
+                    </div>
+                </div>
+                <nav class="nav">
+                    <button class="item active" data-section="search">
+                        🔎 <span>Search Medicines</span>
+                    </button>
+                    <button class="item" data-section="saved">
+                        ⭐ <span>Saved Medicines</span>
+                    </button>
+                    <button class="item" data-section="about">
+                        📘 <span>About Project</span>
+                    </button>
+                    <button class="item" data-section="settings">
+                        ⚙️ <span>Settings</span>
+                    </button>
+                </nav>
+            </div>
+
+            <div class="sidebar-footer">
+                <label class="switch" title="Toggle light/dark">
+                    <input type="checkbox" id="theme-toggle" />
+                    <span>Theme</span>
+                </label>
+                <button class="btn logout" id="logout">Log out</button>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="main">
+            <section class="banner">
+                <div class="logo-row">
+                    <img src="https://content.jdmagicbox.com/comp/lucknow/l9/0522px522.x522.220327203038.d6l9/catalogue/prdhan-mantri-jan-aushadhi-kendra-lucknow-chemists-0fkvatjnq1.jpg"
+                        alt="Jan Aushadhi" />
+                    <div>
+                        <h2 id="welcome">Hello 👋</h2>
+                        <p>Your smart assistant to find affordable, safe, and trusted generic alternatives.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="grid">
+                <!-- Search module -->
+                <section class="card" id="section-search">
+                    <h3>Medicine Finder</h3>
+                    <div class="searchbar">
+                        <input id="medicineInput" class="pill" type="text"
+                            placeholder="Type a medicine (e.g. Paracetamol)" />
+                        <button class="btn btn-primary" id="searchBtn">Search</button>
+                        <button class="btn" id="clearBtn">Clear</button>
+                    </div>
+                    <div class="suggestions" id="suggestions"></div>
+
+                    <div class="result" id="result"></div>
+
+                    <div class="result" id="alternatives"></div>
+                </section>
+
+                <!-- Saved / Profile quick view -->
+                <aside class="card" id="section-saved">
+                    <h3>My Saved Medicines</h3>
+                    <div class="saved-list" id="savedList"></div>
+                    <div class="footer">
+                        <span class="muted">Saved to your device (private)</span>
+                        <button class="btn" id="clearSaved">Clear all</button>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- About -->
+            <section class="card about" id="section-about">
+                <h3>About this project</h3>
+                <p>
+                    Hello! I'm <strong>Chandrashekhar Bhatt</strong>, a passionate engineering student at
+                    <strong>Seemant Institute of Technology, Pithoragarh</strong> and a proud student of
+                    <strong>CodeYogi</strong>.
+                    This project was built to help people discover reliable and affordable generic alternatives.
+                </p>
+                <br />
+                <p>
+                    Goal: Save lives & money through smarter health decisions. Data shown here is demo content for
+                    academic use.
+                </p>
+                <br>
+                <p>
+                    Note: We are constantly working to improve the project functionality..
+                </p>
+            </section>
+
+            <!-- Settings (placeholder) -->
+            <section class="card about" id="section-settings">
+                <h3>Settings</h3>
+                <p class="muted">More settings coming soon (language, privacy, data import/export).</p>
+                <br>
+                <p>
+                    Note: We are constantly working to improve the project functionality And UI.
+                </p>
+            </section>
+        </main>
+    </div>
+
+    <div class="toast" id="toast">Saved!</div>
+
+    
+    <script src="script.js"></script>
+</body>
+
+</html>
